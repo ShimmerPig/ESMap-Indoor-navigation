@@ -1,0 +1,214 @@
+{
+  "mapstyle": {
+    "clearcolor": "0,19,38",
+    "cleartransparent": "0.0"
+  },
+  "floorstyle": [
+    {
+      "floornum": "0",
+      "baseheight": "1",
+      "color": "24,63,92",
+      "transparent": "0"
+    },
+    {
+      "floornum": "1",
+      "baseheight": "1",
+      "color": "24,63,92",
+      "transparent": "0"
+    },
+    {
+      "floornum": "2",
+      "baseheight": "1",
+      "color": "24,63,92",
+      "transparent": "0"
+    }
+  ],
+  "roomstyle": [
+      {
+      "typeid": "0",
+      "color": "0,0,0",
+      "transparent": "1.0",
+      "strokecolor": "153,153,153",
+      "strokewidth": "1.0"
+    },
+    {
+      "typeid": "1",
+      "color": "255,198,44",
+      "transparent": "1.0",
+      "strokecolor": "153,153,153",
+      "strokewidth": "1.0"
+    },   
+    {
+      "typeid": "10",
+      "color": "232,246,215",
+      "transparent": "1.0",
+      "strokecolor": "157,227,215",
+      "strokewidth": "1.0"
+    },
+    {
+      "typeid": "11",
+      "color": "119,232,215",
+      "transparent": "0.5",
+      "strokecolor": "154,185,233",
+      "strokewidth": "1.0"
+    },
+    {
+      "typeid": "12",
+      "color": "53,189,251",
+      "transparent": "0.5",
+      "strokecolor": "153,211,234",
+      "strokewidth": "1.0"
+    },
+    {
+      "typeid": "27",
+      "color": "40,134,176",
+      "transparent": "1",
+      "strokecolor": "153,211,234",
+      "strokewidth": "1.0"
+    },
+    {
+      "typeid": "13",
+      "color": "118,201,255",
+      "transparent": "0.8",
+      "strokecolor": "250,203,63",
+      "strokewidth": "1.0"
+    },
+
+    {
+      "typeid": "14",
+       "color": "23,114,185",
+      "transparent": "0.5",
+      "strokecolor": "52,206,213",
+      "strokewidth": "3.0"
+    },
+{
+      "typeid": "30",
+       "color": "23,94,147",
+      "transparent": "0.98",
+      "strokecolor": "52,206,213",
+      "strokewidth": "3.0"
+    },
+    {
+      "typeid": "15",
+      "color": "23,94,146",
+      "transparent": "0.9",
+      "strokecolor": "23,94,146",
+      "strokewidth": "1.0"
+    },
+    {
+      "typeid": "16",
+      "color": "120,176,215",
+      "transparent": "0.8",
+      "strokecolor": "9,48,91",
+      "strokewidth": "1.0"
+    },
+
+    {
+      "typeid": "28",
+      "color": "106,169,212",
+      "transparent": "1.0",
+      "strokecolor": "9,48,91",
+      "strokewidth": "1.0"
+    },
+    {
+      "typeid": "17",
+      "color": "117,201,255",
+      "transparent": "1.0",
+      "strokecolor": "146,186,230",
+      "strokewidth": "1.0"
+    },
+    {
+      "typeid": "18",
+      "color": "179,229,252",
+      "transparent": "1.0",
+      "strokecolor": "240,240,240",
+      "strokewidth": "1.0"
+    },
+    {
+      "typeid": "19",
+      "color": "74,234,230",
+      "transparent": "1.0",
+      "strokecolor": "159,211,209",
+      "strokewidth": "1.0"
+    },
+    {
+      "typeid": "20",
+      "color": "156,233,191",
+      "transparent": "1.0",
+      "strokecolor": "240,240,240",
+      "strokewidth": "1.0"
+    },
+    {
+      "typeid": "21",
+      "color": "157,182,199",
+      "transparent": "0.8",
+      "strokecolor": "229,134,134",
+      "strokewidth": "1.0"
+    },
+    {
+      "typeid": "22",
+      "color": "53,142,251",
+      "transparent": "0.5",
+      "strokecolor": "10,199,184",
+      "strokewidth": "1.0"
+    },
+    {
+      "typeid": "23",
+      "color": "66,98,136",
+      "transparent": "1.0",
+      "strokecolor": "66,98,136",
+      "strokewidth": "1.0"
+    },
+    {
+      "typeid": "24",
+      "color": "39,60,76",
+      "transparent": "1",
+      "strokecolor": "39,60,76",
+      "strokewidth": "1.0"
+    },
+    {
+      "typeid": "25",
+      "color": "67,155,165",
+      "transparent": "1.0",
+      "strokecolor": "67,155,165",
+      "strokewidth": "1.0"
+    },
+    {
+      "typeid": "26",
+      "color": "120,176,215",
+      "transparent": "0.8",
+      "strokecolor": "9,48,91",
+      "strokewidth": "1.0"
+    },
+    {
+      "typeid": "29",
+      "color": "105,147,224",
+      "transparent": "1",
+      "strokecolor": "52,206,213",
+      "strokewidth": "1.0"
+    },
+    {
+        "typeid": "999",
+        "color": "255,255,255",
+        "transparent": "0.1",
+        "strokecolor": "232,232,232",
+        "strokewidth": "1"
+    } 
+  ],
+  "fontstyle": [
+    {
+      "typeid": "0",
+      "fontsize": "12.0",
+      "fontface": "",
+      "fillcolor": "0,0,0",
+      "strokecolor": "255,255,255"
+    },
+    {
+      "typeid": "1",
+      "fontsize": "12.0",
+      "fontface": "",
+      "fillcolor": "242,42,141",
+      "strokecolor": "255,255,255"
+    }
+  ]
+}

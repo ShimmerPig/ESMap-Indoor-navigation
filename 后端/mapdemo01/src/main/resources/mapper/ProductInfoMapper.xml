@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.imooc.mapper.ProductInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.imooc.pojo.ProductInfo" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="product_id" property="productId" jdbcType="VARCHAR" />
+    <result column="product_x" property="productX" jdbcType="VARCHAR" />
+    <result column="product_y" property="productY" jdbcType="VARCHAR" />
+    <result column="product_fnum" property="productFnum" jdbcType="INTEGER" />
+    <result column="product_name" property="productName" jdbcType="VARCHAR" />
+    <result column="product_price" property="productPrice" jdbcType="DECIMAL" />
+    <result column="product_icon" property="productIcon" jdbcType="VARCHAR" />
+    <result column="product_icon_big" property="productIconBig" jdbcType="VARCHAR" />
+    <result column="category_type" property="categoryType" jdbcType="INTEGER" />
+  </resultMap>
+</mapper>

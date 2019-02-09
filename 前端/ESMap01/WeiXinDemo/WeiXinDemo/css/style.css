@@ -1,0 +1,234 @@
+
+*{ margin:0; padding:0; font-family:Microsoft YaHei,Arial,sans-serif; -moz-box-sizing:border-box; -o-box-sizing:border-box; -webkit-box-sizing:border-box; box-sizing:border-box;}
+
+a{ text-decoration:none;}
+
+img,input,select,textarea{ outline:none; resize:none; border:none; background:none;}
+
+ul,ol,li,dl,dt,dd{ list-style:none;}
+
+/****************************************************************************************************************************/
+
+html{ font-size: 20px;}
+
+@media only screen and (max-width: 414px) {
+html{ font-size: 18px;}
+.sResult-control > ul > li > a.btn{
+    line-height: 1rem;
+}
+}
+@media only screen and (max-width: 375px) {
+html{ font-size: 16px;}
+}
+@media only screen and (max-width: 360px) {
+html{ font-size: 15px;}
+}
+@media only screen and (max-width: 320px) {
+html{ font-size: 14px;}
+}
+
+.scrollStyle::-webkit-scrollbar{width:2px;}
+.scrollStyle::-webkit-scrollbar-thumb{ background-color: rgba(51,51,51,0.2); border-radius:2px;}
+
+input::-webkit-input-placeholder{ color: #999999;}
+
+/*-webkit-tap-highlight-color:transparent; 防止ios click 闪屏*/
+html,body{ height: 100%; -webkit-tap-highlight-color:transparent;}
+
+body{ min-width: 320px; max-width: 1200px; margin: 0 auto; overflow: hidden; position: relative; -webkit-user-select:none; user-select:none;}
+
+.body-container{ height: 100%; position: relative; overflow: hidden;}
+
+
+.index-container,
+.search-container{ position: absolute; left: 0; right: 0; top: 0; bottom: 0;}
+
+.index-container{ z-index: 100; background-color: #F4F5FA;}
+.search-container{ z-index: 200;background-color: #F4F5FA; -webkit-transform: translate(100%,0); transform: translate(100%,0); -webkit-transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94); transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);}
+.search-container.show{ -webkit-transform: translate(0,0); transform: translate(0,0);}
+.search-container{ display: -webkit-flex; display: flex; flex-direction: column;}
+
+
+
+/*******************************************************************
+ * index
+ *******************************************************************/
+
+/*brtmap*/
+.brtmap{ position: relative; height: 100%; z-index: -1;}
+
+
+/*searchButton-module*/
+.searchButton-module{ position: absolute; height: 2.6rem; right: 1rem; left: 1rem; top: 1rem; border-top: 1px solid #EEEEEE; box-shadow: 0 1px 3px #CCCCCC; border-radius: 3px; background: url(../images/search-icon.png) #FFFFFF center left 0.5rem no-repeat; background-size: auto 40%; z-index: 10;}
+.searchButton-module > input{ width: 100%; height: 100%; position: relative; z-index: 10; padding: 0 2rem; font-size: 0.8rem;}
+.searchButton-module > .close{ position: absolute; right: 0; top: 0; bottom: 0; width: 2.6rem; display: none; z-index: 20;}
+.searchButton-module > .close:after{ content: ''; display: block; position: absolute; left: 50%; margin-left: -0.6rem; top: 50%; margin-top: -0.6em; width: 1.2rem; height: 1.2rem; border-radius: 50%; background: url(../images/close_icon.png) #CCCCCC center no-repeat; background-size: 45% auto;}
+
+
+/*bottom-module*/
+.bottom-module{ position: absolute; left: 0; right: 0; bottom: 0; z-index: 10;background-color: white;}
+
+
+/*location-control*/
+.location-control{ width: 2.5rem; height: 2.5rem; border-radius: 50%; position: absolute; top: -6.8rem; left: 1rem; border: 1px solid #DDDDDD; background: url(../images/location_icon.png) #FFFFFF center no-repeat; background-size: 100% auto;}
+/*help*/
+.location-control.help{ background-image: url(../images/help_ico.png); top: -3.5rem;}
+.location-control:active{ background-color: #F2F2F2;}
+
+
+.change-control{ position: relative;}
+
+
+/*poiInfo-control*/
+.poiInfo-control{}
+.poiInfo-control > .goBtn{ position: absolute; right: 4.2rem; top: -1.8rem; width: 3.6rem; height: 3.6rem; border-radius: 50%; border: 1px solid #CCCCCC; background: url(../images/icon_09.png) #FFFFFF center top 0.4rem no-repeat; background-size: 35% auto; box-shadow: 0 2px 3px #DDDDDD; font-size: 0.7rem; padding-top: 2rem; text-align: center; color: #EA715E;}
+.poiInfo-control > .close{ position: absolute; right: 0; top: -0; width: 2rem; height: 2rem; background: url(../images/close_icon.png) center no-repeat; background-size: 43% auto;}
+.poiInfo-control > .info-box{ padding: 1rem;}
+.poiInfo-control > .info-box > .p1{ font-size: 1rem; color: #333333; font-weight: bold;}
+.poiInfo-control > .btn-box{ display: -webkit-flex; display: flex; border-top: 1px solid #E5E5E5;}
+.poiInfo-control > .btn-box > a{ display: block; font-size: 0.8rem; color: #333333; text-align: center; line-height: 2.5rem; position: relative;}
+.poiInfo-control > .btn-box > a:nth-child(n+2){ -webkit-flex: 1; flex: 1;}
+.poiInfo-control > .btn-box > a:before{ content: ''; display: inline-block; width: 1rem; height: 1rem; background: center no-repeat; background-size: auto 100%; vertical-align: middle; position: relative; top: -0.08rem; margin-right: 0.35rem;}
+.poiInfo-control > .btn-box > a:after{ content: ''; position: absolute; left: 0; top: 30%; bottom: 30%; border-left: 1px solid #E5E5E5;}
+.poiInfo-control > .btn-box > a:nth-child(1):after,
+.poiInfo-control > .btn-box > a:nth-child(2):after{ display: none;}
+.poiInfo-control > .btn-box > a.btn-start:before{ background-image: url(../images/icon_16.png);}
+.poiInfo-control > .btn-box > a.btn-end:before{ background-image: url(../images/icon_17.png);}
+.poiInfo-control > .btn-box > a:active{ background-color: #F2F2F2;}
+
+
+/*startEndPoint-module*/
+.startEndPoint-module{ position: absolute; left: 0; right: 0; top: 0; background-color: rgba(255,255,255,0.95); border-bottom: 1px solid #DDDDDD; height: 6rem; z-index: 20; display: -webkit-flex; display: flex; -webkit-transform: translate(0,-7rem); -webkit-transition: transform 0.3s;}
+.startEndPoint-module.show{-webkit-transform: translate(0,0);}
+.startEndPoint-module > .btn-back{ width: 2.8rem; padding: 0.55rem 0;}
+.startEndPoint-module > .btn-back > .btn{ display: block; height: 2.4rem; background: url(../images/icon_14.png) center no-repeat; background-size: auto 48%;}
+.startEndPoint-module > .btn-change{ width: 3rem; position:relative;}
+.startEndPoint-module > .btn-change > .btn{ display: block; width: 100%; height: 2.4rem; background: url(../images/icon_10.png) center no-repeat; background-size: 43% auto; position: absolute; top: 50%; margin-top: -1.2rem;}
+.startEndPoint-module > .show-box{ -webkit-flex: 1; flex: 1; display: -webkit-flex; display: flex; flex-direction: column; justify-content: center;}
+.startEndPoint-module > .show-box > .item-box{ height: 2.4rem; position: relative; overflow: hidden;}
+.startEndPoint-module > .show-box > .item-box > input{ width: 100%; height: 100%; font-size: 0.8rem; color: #222222; padding-left: 1.5rem; position: relative; z-index: 10;}
+.startEndPoint-module > .show-box > .item-box:after{ content: ''; position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: 20;}
+.startEndPoint-module > .show-box > .item-box:first-child{ border-bottom: 1px solid #DDDDDD;}
+.startEndPoint-module > .show-box > .item-box:before{ content: ""; position: absolute; left: 0; top: 50%; margin-top: -0.3rem; display: block; width: 0.6rem; height: 0.6rem; border-radius: 50%;}
+.startEndPoint-module > .show-box > .start-box:before{ background-color: #669999;}
+.startEndPoint-module > .show-box > .end-box:before{ background-color: #cc6666;}
+
+
+/*startNav-control*/
+.startNav-control{ position: relative; height: 4rem;}
+.startNav-control .info-box{ padding: 0.8rem 1rem;}
+.startNav-control .info-box > .p1{ font-size: 1rem; color: #333333; font-weight: bold; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding-right: 7.5rem;}
+.startNav-control .info-box div>span{ font-size: 0.7rem; color: #c5c5c5; height: 1rem; margin-top: 0.3rem;}
+.startNav-control .real-btn{ position: absolute; right: 1rem; top: 50%; margin-top: -1.2rem; height: 2.4rem; line-height: 2.4rem; padding: 0 1rem; border-radius: 0.5rem; font-size: 0.9rem; color: #ea715e; border: 1px solid #ea715e; text-align: center; z-index: 10;}
+.startNav-control.off .info-box{ visibility: hidden;}
+.startNav-control.off .real-btn{ left: 1rem;}
+/*queryRouteFloor-module*/
+.queryRouteFloor-module{ position: absolute; right: 1rem; top: 7rem; z-index: 50; background-color: rgba(0,0,0,0.6); color: #FFFFFF; font-size: 0.8rem; height: 2rem; line-height: 2rem; border-radius: 2rem; text-align: center; padding: 0 0.6rem; display: none;}
+.queryRouteFloor-module:before{ content: ''; display: inline-block; width: 1rem; height: 1.4rem; background: center no-repeat; background-size: 100% auto; vertical-align: middle; position: relative; top: -0.1rem; margin-right: 0.3rem;}
+.queryRouteFloor-module.query-start:before{ background-image: url(../images/start_marker.png);}
+.queryRouteFloor-module.query-end:before{ background-image: url(../images/end_marker.png);}
+
+
+
+/*******************************************************************
+ * search
+ *******************************************************************/
+
+/*head-module*/
+.head-module{ border-bottom: 1px solid #DDDDDD; padding:1rem; background-color: #FFFFFF; position: relative;}
+.head-module > .back-button{ width: 2.5rem; height: 2.6rem; position: absolute; left: 0; top: 1rem; background: url(../images/icon_02.png) center no-repeat; background-size: auto 45%;}
+.head-module > .box-control{ display: -webkit-flex; display: flex; height: 2.6rem; border: 1px solid #DDDDDD; border-radius: 3px; background-color: #FFFFFF; margin-left: 1.5rem;}
+.head-module > .box-control > .floor-box{ width: 3rem; height: 100%; position: relative;}
+.head-module > .box-control > .floor-box:after{ content: ''; position: absolute; right: 0; top: 0.5rem; bottom: 0.5rem; border-right: 1px solid #e5e5e5;}
+.head-module > .box-control > .floor-box > .box{ font-size: 0.8rem; color: #333333; line-height: 2.6rem; text-align: center;}
+.head-module > .box-control > .floor-box > .box:after{ content: ''; display: inline-block; width: 0.6rem; height: 0.6rem; background: url(../images/icon_01.png) center no-repeat; background-size: 100% auto; margin-left: 0.2rem;}
+.head-module > .box-control > .floor-box > .box[floor-id='']{ font-size: 0.7rem;}
+.head-module > .box-control > .floor-box > .ul{ text-align: center; font-size: 0.75rem; background-color: #FFFFFF; border-left: 1px solid #CCCCCC; border-right: 1px solid #CCCCCC; border-radius: 0 0 5px 5px; position: absolute; left: 0; right: 0; top: 2.6rem; z-index: 5; max-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; -webkit-transition: max-height 0.45s; transition: max-height 0.45s;}
+.head-module > .box-control > .floor-box > .ul.show{ max-height: 15rem; border-bottom: 1px solid #CCCCCC;}
+.head-module > .box-control > .floor-box > .ul > li{ line-height: 2.2rem; position: relative; color: #999999;}
+.head-module > .box-control > .floor-box > .ul > li:before{ content: ''; position: absolute; left: 20%; right: 20%; top: 0; border-top: 1px solid #DDDDDD;}
+.head-module > .box-control > .floor-box > .ul > li:first-child:before{ display: none;}
+.head-module > .box-control > .floor-box > .ul > li.active{ color: #ea715e;}
+.head-module > .box-control > .input-box{ -webkit-flex: 1; flex: 1; height: 100%; position: relative;}
+.head-module > .box-control > .input-box:before{ content: ''; width: 2rem; position: absolute; left: 0; top: 0; bottom: 0; background: url(../images/search-icon.png) center no-repeat; background-size: auto 40%;}
+.head-module > .box-control > .input-box > input{ width: 100%; height: 100%; font-size: 0.8rem; padding-left: 2rem; padding-right: 5.2rem;}
+.head-module > .box-control > .input-box > .close{ position: absolute; display: block; right: 0; width: 2rem; top: 0; bottom: 0; display: none;}
+.head-module > .box-control > .input-box > .close:after{ content: ''; display: block; position: absolute; left: 50%; margin-left: -0.5rem; top: 50%; margin-top: -0.5rem; width: 1rem; height: 1rem; border-radius: 50%; background: url(../images/close_icon.png) #CCCCCC center no-repeat; background-size: 40% auto;}
+.head-module > .box-control > .input-box.showSearch > .close{ display: block;}
+.head-module > .box-control > .input-box.showSearch2 > .close{ display: block; right: 0;}
+.head-module > .box-control > .input-box.showSearch2 > input{ padding-right: 2rem;}
+
+
+/*content-module*/
+.content-module{ -webkit-flex: 1; flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch;}
+
+
+/*facility-control*/
+.facility-control{ background-color: #FFFFFF; padding-bottom: 1rem; position: relative; margin-bottom: 2rem;}
+.facility-control > .box{ display: -webkit-flex; display: flex; flex-flow: row wrap;}
+.facility-control .item-box{ -webkit-flex: 0 0 25%; flex: 0 0 25%; text-align: center; font-size: 0.8rem; color: #666666; margin-top: 1rem; order:1;}
+.facility-control .item-box > img{ width: 3.5rem; border-radius: 50%;}
+.facility-control .item-box > span{ display: block; line-height: 1.5rem;}
+.facility-control .item-box:nth-child(n+5){ display: none;}
+.facility-control > .moveBtn{ position: absolute; width: 2.6rem; height: 2.6rem; border-radius: 0.1rem; left: 50%; margin-left: -1.3rem; bottom: -1.3rem; background-color: #FFFFFF;}
+.facility-control > .moveBtn:before{ content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1.3rem; background: url(../images/move.png) center no-repeat; background-size: 40% auto; -webkit-transform: rotate(180deg); transform: rotate(180deg);}
+.facility-control > .box.show .item-box{ display: block;}
+.facility-control > .moveBtn.show:before{ -webkit-transform: rotate(0deg); transform: rotate(0deg);}
+
+
+/*sHistory-control*/
+.sHistory-control{ margin-top: 1rem; background-color: #FFFFFF;}
+.sHistory-control > .list{ color: #666666; font-size: 0.8rem;}
+.sHistory-control > .list > li{ padding: 0 1rem; line-height: 3rem; background: url(../images/search-icon.png) left 1rem center no-repeat; background-size: auto 40%; padding-left: 2.8rem; position: relative;}
+.sHistory-control > .list > li:after{ content: ''; position: absolute; left: 1rem; right: 1rem; top: 0; border-top: 1px solid #EEEEEE;}
+.sHistory-control > .list > li:first-child:after{ border-top: none;}
+.sHistory-control > .list > li:active,
+.sHistory-control > .empty-btn:active{ background-color: #F2F2F2;}
+.sHistory-control > .empty-btn{ text-align: center; line-height: 3rem; color: #CCCCCC; font-size: 0.9rem;}
+.sHistory-control > .empty-btn.on{ border-top: 1px solid #DDDDDD; color: #333333;}
+
+
+/*sResult-control*/
+.sResult-control{ background-color: #FFFFFF; border-bottom:1px solid #DDDDDD; border-top: 1px solid #DDDDDD; margin-top: -1px;}
+.sResult-control > ul{ color: #666666;}
+.sResult-control > ul > li{ height: 3rem; line-height: 3rem; padding: 0 2.6rem; background: url(../images/icon_04.png) 1rem center no-repeat; background-size: auto 42%; position: relative; overflow: hidden; word-wrap : break-word; word-break:break-all; font-size: 0.85rem;}
+.sResult-control > ul > li:before{ content: ''; position: absolute; left: 1rem; right: 1rem; border-top: 1px solid #DDDDDD;}
+.sResult-control > ul > li:first-child:before{ border-top: none;}
+.sResult-control > ul > li:active{ background-color: #F2F2F2;}
+.sResult-control > ul > li > .btn{ display: block; position: absolute; right: 1rem; top: 50%; margin-top: -1rem; width: 6.5rem; height: 2rem; line-height: 2rem; text-align: center; font-size: 0.8rem; border: 1px solid #ea715e; color: #ea715e; border-radius: 0.2rem; pointer-events: none; display: none; background-color: #FFFFFF;}
+.sResult-control > ul > li > .btn:before{ content: ''; display: inline-block; width: 1rem; height: 1.5rem; background: center no-repeat; background-size: auto 75%; vertical-align: middle; position: relative; top: -0.1rem; margin-right: 0.2rem;}
+.sResult-control > ul > li > .btn.start:before{ background-image: url(../images/icon_19.png);}
+.sResult-control > ul > li > .btn.end:before{ background-image: url(../images/icon_20.png);}
+.sResult-control > ul.showBtn > li > .btn{ display: block;}
+.sResult-control > ul > li font{ color: #fd3d3c;}
+.sResult-control > .tips{ color: #999999; text-align: center; line-height: 2.6rem; font-size: 0.9rem; display: none;}
+
+
+/*******************************************************************
+ * 其他
+ *******************************************************************/
+.alertLayer-tips-box{ color: #333333;}
+.alertLayer-tips-box img{ width: 1.35rem; vertical-align: middle; margin-right: 0.6rem; margin-bottom: 0.35rem;}
+
+
+.bluetooth-tips-p1{ font-size: 1rem; color: #ff414d;}
+.bluetooth-tips-p1:before{ content: ''; display: inline-block; width: 1.5rem; height: 1.5rem; background: url(../images/bt_icon.png) center no-repeat; background-size: auto 100%; vertical-align: middle; position: relative; top: -0.15rem; margin-right: 0.5rem;}
+.bluetooth-tips-p2{ color:#999999;font-size:0.8rem; margin-top: 0.5rem;}
+
+/*纠正正北方向提示*/
+.rectify-heading-tips{ position: absolute; left: 0; right: 0; top: 0; bottom: 0; background-color: rgba(0,0,0,0.6); z-index: 9999; text-align: center; display: none;}
+.rectify-heading-tips div{ background-color: #000000; padding-top: 1rem; padding-bottom: 2rem;}
+.rectify-heading-tips img{ width: 70%;}
+.rectify-heading-tips p{ padding: 1rem 0; color: #FFFFFF; font-size: 0.9rem;}
+.rectify-heading-tips a{ display: inline-block; width: 50%; line-height: 2.5rem; background-color: #ea715e; color:#FFFFFF; font-size: 0.8rem; margin-top: 2rem;}
+
+/*友情提示*/
+.look-car-tips{ position: absolute; left: 1.2rem; right: 1.2rem; top: 4.5rem;  font-size: 0.7rem; line-height: 2rem; border-radius: 1.8rem;background-color: #666666;  color: #ffffff; z-index: 10; padding: 0 0.8rem 0 0.5rem; overflow: hidden; text-overflow:ellipsis; white-space: nowrap;}
+.look-car-tips i{ display: inline-block; width: 0.9rem; vertical-align: middle; position: relative; top:-2px;  height: 0.9rem; background:url(../images/u132.png) center no-repeat; background-size: auto 100%; }
+.look-car-tips .close{ display: inline-block; width: 1.5rem; height: 1.5rem; background: url(../images/u134.png) center no-repeat; background-size: 80% auto; position: absolute; right: 0.55rem; top:0.25rem;}
+
+/*微信分享提示*/
+.weixin-share-tips{ position: absolute; left: 0; right: 0; top: 0; bottom: 0; background: url(../images/share_icon.png) center top no-repeat; background-size: 90% auto; background-color: rgba(0,0,0,0.6); z-index: 999; display: none;}
+
+/*地图选点提示*/
+.map-select-point-tips{ position: absolute; right: 1rem; left: 4.5rem; top: 1.35rem; background-color: rgba(0,0,0,0.6); font-size: 0.8rem; color: #FFFFFF; line-height: 2rem; text-align: center; border-radius: 1rem; z-index: 20; display: none;}

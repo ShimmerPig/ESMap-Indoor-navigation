@@ -1,0 +1,269 @@
+﻿html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+/* 地图显示区域样式 */
+#map-container {
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    bottom: 0px;
+}
+
+/* 浏览器不兼容webGL 时的提示 */
+.noWebGL {
+    position: fixed;
+    font-family:'Microsoft YaHei';
+    top: 50%;
+    color:rgba(212, 43, 43, 1);
+    margin-top: -60px;
+    padding-left: 40%;
+    background-color:rgba(178, 226, 240, 1);
+    width: 100%;
+    height: 120px;
+    font-weight:100;
+}
+/* 楼层按钮 */
+.group-layer {
+    position: absolute;
+    right: 5px;
+    top: 120px;
+}
+/* 缩放按钮组 */
+.zoom-group {
+    position:absolute;
+    top:240px;
+    left: 2%;
+}
+/* 下拉框样式 */
+.dropdown {
+    position:absolute;
+    top:60px;
+    left: 2%;
+}
+
+/* 视角按钮组 */
+.viewmode-group {
+    position:absolute;
+    top:240px;
+    left: 2%;
+}
+
+.modal-dialog.bottom {
+    position:absolute;
+    bottom:50px;
+    left:0px;
+    right:0px;
+    margin:auto;
+}
+
+/* 弹出提示框样式 */
+#prompt {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    font-family:Consolas,monospace;
+}
+
+/* 适配手机浏览器样式 */
+@media screen and (min-width: 768px) {
+    .group-theme {
+        top: 328px;
+    }
+    .group-zoom {
+        top: 392px;
+    }
+    .viewmode-group .btn,
+    .layer-list {
+        width: 51px;
+    }
+    #top,
+    #down {
+        height: 28px;
+        line-height: 14px;
+    }
+    #top > i {
+        font-size: 16px;
+    }
+    #down > i {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .btn {
+        padding: 5px 10px;
+        font-size: 12px;
+        line-height: 1.5;
+        border-radius: 3px;
+    }
+    .btn > i {
+        font-size: 18px;
+    }
+    .group-theme {
+        top: 288px;
+    }
+    .group-zoom {
+        top: 342px;
+    }
+    .viewmode-group .btn,
+    .layer-list {
+        width: 40px;
+    }
+    #top,
+    #down {
+        height: 18px;
+        padding: 0;
+    }
+    #top > i {
+        font-size: 14px;
+    }
+    #down > i {
+        font-size: 14px;
+    }
+}
+.btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.viewmode-group {
+    position: absolute;
+    top: 100px;
+    right: 10px;
+    left: auto;
+}
+#btn2D,
+#btn3D {
+    width: 32px;
+    height: 32px;
+}
+@media screen and (min-width:824px) {
+    #btn2D,
+    #btn3D {
+        width: 42px;
+        height: 42px;
+    }
+}
+
+.animate-btn {
+    position: absolute;
+    right: 12rem;
+    top: 50%;
+    margin-top: -1.2rem;
+    height: 2.4rem;
+    line-height: 2.4rem;
+    padding: 0 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    color: #ea715e;
+    border: 1px solid #ea715e;
+    text-align: center;
+    margin-top: 18px;
+    z-index: 10;
+    display: none;
+}
+
+.navi-tip {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    /* background-color: rgba(255, 255, 255, 0.95); */
+    /* border-bottom: 1px solid #DDDDDD; */
+    height: 4rem;
+    z-index: 20;
+    display: -webkit-flex;
+    display: flex;
+    margin-top: 46px;
+    -webkit-transform: translate(0, -7rem);
+    -webkit-transition: transform 0.3s;
+    transition: margin-top 0.45s;
+}
+
+.navi-tip div.navi-dis {
+    background: #fff;
+    text-align: center;
+    border-radius: 1em;
+    opacity: 0.8;
+}
+
+.navi-tip>div {
+    margin: 0 auto;
+}
+
+.navi-tip.show {
+    -webkit-transform: translate(0, 0);
+}
+
+.navi-dis {
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    height: 100%;
+    line-height: 3rem;
+    padding: 10px 10px;
+}
+
+.end-btn {
+    display: none;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    margin-top: -1.2rem;
+    height: 2.4rem;
+    line-height: 2.4rem;
+    padding: 0 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    color: #ea715e;
+    border: 1px solid #ea715e;
+    text-align: center;
+    z-index: 10;
+}
+
+.anim-btn {
+    display: none;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    margin-top: -1.2rem;
+    height: 2.4rem;
+    line-height: 2.4rem;
+    padding: 0 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    color: #ea715e;
+    border: 1px solid #ea715e;
+    text-align: center;
+    z-index: 10;
+}
+
+.floor-tip {
+    width: 100%;
+    background: #008986;
+    z-index: 21;
+    position: absolute;
+    transition: margin-top 0.45s;
+    margin-top: -16rem;
+}
+
+.floor-tip h4 {
+    color: #fff;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.f-img {
+    /* background-image: url(images/floors/1.jpg); */
+    height: 15rem;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    position: relative;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, .3);
+}
