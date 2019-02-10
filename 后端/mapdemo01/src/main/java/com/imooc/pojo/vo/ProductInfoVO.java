@@ -13,7 +13,22 @@ public class ProductInfoVO {
     private BigDecimal productPrice;
     private String productIcon;
     private String productIconBig;
-    private Integer categoryType;
+    private String productQrcode;
+	private Integer categoryType;
+    private String floorName="F1";
+    
+    public String getProductQrcode() {
+		return productQrcode;
+	}
+	public void setProductQrcode(String productQrcode) {
+		this.productQrcode = productQrcode;
+	}
+	public String getFloorName() {
+		return floorName;
+	}
+	public void setFloorName(String floorName) {
+		this.floorName = floorName;
+	}
 	public String getProductId() {
 		return productId;
 	}

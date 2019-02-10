@@ -156,6 +156,7 @@
     <script type="text/javascript" src="js/nav.js?v=11"></script>
 </body>
 <script src="js/mui.min.js"></script>
+<script type="application/javascript" src="js/app.js"></script>
 <script type="text/javascript">
 	mapDowork();
 	mui.init();
@@ -197,38 +198,47 @@
 		showNavDiv(poiInfo);
 	}, { passive: false });
 
+
+	var searchProduct;
+//	var productFnum;
+//	var productX;
+//	var productY;
+	var productName;
+	var pi;
+	
 	console.log("index~~~~~~~~~");
 	//若是扫码后跳转到此页面的，则显示后端查询后返回的room
 	mui.plusReady(function(){
 		console.log("readyyyyyyyyyyyyyyyyyyyyyy");
 		var currnetWebview = plus.webview.currentWebview();
+		searchProduct = currnetWebview.searchProduct;
+//		productFnum = currnetWebview.productFnum;
+//		productX = currnetWebview.productX;
+//		productY = currnetWebview.productY;
+		productName=currnetWebview.productName;
+		pi=app.getProductInfo();
+		
 		currnetWebview.addEventListener("show", function(){
 		//console.log("show呜呜呜呜呜呜呜呜无无无无无无无无无无无无无无无无无无无无无无无无无无无");
-		console.log("index show~~~~~~~~~~~")
-		currnetWebview = plus.webview.currentWebview();
-		var searchRoom = currnetWebview.searchRoom;
-		var productFnum = currnetWebview.productFnum;
-		var productX = currnetWebview.productX;
-		var productY = currnetWebview.productY;
-		var productName=currnetWebview.productName;
-			console.log("productX");
-			console.log(productX);
-			console.log("productY");
-			console.log(productY);
-			console.log("productFnum");
-			console.log(productFnum);
+			console.log("index show~~~~~~~~~~~")
+//			console.log("productX");
+//			console.log(productX);
+//			console.log("productY");
+//			console.log(productY);
+//			console.log("productFnum");
+//			console.log(productFnum);
 			console.log("productName");
 			console.log(productName);
 		//从查询房间页面跳转过来的
-		if(searchRoom != null && searchRoom != "" && searchRoom != undefined){
-			console.log(JSON.stringify(searchRoom));
+			if(searchProduct != null && searchProduct != "" && searchProduct != undefined){
+				console.log(JSON.stringify(searchProduct));
 	//		$("#mytest").click(function(){
 				var poiInfo={};
-				poiInfo.x=searchRoom.x;
-		        poiInfo.y=searchRoom.y;
-		        poiInfo.fnum=searchRoom.fnum;
-		        poiInfo.FloorName=searchRoom.floorName;
-		        poiInfo.name=searchRoom.name;
+				poiInfo.x=searchProduct.productX;
+		        poiInfo.y=searchProduct.productY;
+		        poiInfo.fnum=searchProduct.productFnum;
+		        poiInfo.FloorName=searchProduct.floorName;
+		        poiInfo.name=searchProduct.productName;
 		
 				drawPoint(poiInfo.x, poiInfo.y, poiInfo.fnum);
 				map.changeFocusFloor(poiInfo.fnum);
@@ -240,51 +250,51 @@
 				});
 				//显示下面的设置起点与终点
 				showNavDiv(poiInfo);
-				currnetWebview.searchRoom="";
+				currnetWebview.searchProduct="";
 	//		});
 			//从查询商品页面跳转过来的
-		}else if(productFnum != null && productFnum != "" && productFnum != undefined){
-			console.log("sssssssssssssssssssssssssssssssssss");
-			console.log("productX");
-			console.log(productX);
-			console.log("productY");
-			console.log(productY);
-			console.log("productFnum");
-			console.log(productFnum);
-			console.log("productName");
-			console.log(productName);
-			var poiInfo={};
-			poiInfo.x=productX;
-	        poiInfo.y=productY;
-	        poiInfo.fnum=1;
-	        poiInfo.FloorName="F1";
-	        poiInfo.name=productName;
-			drawPoint(poiInfo.x,poiInfo.y,1);
-			map.changeFocusFloor(1);
-			map.moveTo({
-				x: Number(poiInfo.x),
-				y: Number(poiInfo.y),
-				FloorNum: 1,
-				time: 0.5
-			});
-			//显示下面的设置起点与终点
-			showNavDiv(poiInfo);
-			currnetWebview.productFnum="";
-			currnetWebview.productX="";
-			currnetWebview.productY="";
-			currnetWebview.productName="";
-//			console.log("productX");
-//			console.log(productX);
-//			console.log("productY");
-//			console.log(productY);
-//			console.log("productFnum");
-//			console.log(productFnum);
-//			console.log("productName");
-//			console.log(productName);
-		}else{
-			console.log("productInfo is null...");
-		}
-	}, { passive: false });
+			}else if(productName != null && productName != "" && productName != undefined){
+				console.log("sssssssssssssssssssssssssssssssssss");
+//				console.log("productX");
+//				console.log(productX);
+//				console.log("productY");
+//				console.log(productY);
+//				console.log("productFnum");
+//				console.log(productFnum);
+				console.log("productName");
+				console.log(productName);
+				var poiInfo={};
+				poiInfo.x=pi.productX;
+		        poiInfo.y=pi.productY;
+		        poiInfo.fnum=1;
+		        poiInfo.FloorName="F1";
+		        poiInfo.name=pi.productName;
+				drawPoint(poiInfo.x,poiInfo.y,1);
+				map.changeFocusFloor(1);
+				map.moveTo({
+					x: Number(poiInfo.x),
+					y: Number(poiInfo.y),
+					FloorNum: 1,
+					time: 0.5
+				});
+				//显示下面的设置起点与终点
+				showNavDiv(poiInfo);
+//				currnetWebview.productFnum="";
+//				currnetWebview.productX="";
+//				currnetWebview.productY="";
+				currnetWebview.productName="";
+	//			console.log("productX");
+	//			console.log(productX);
+	//			console.log("productY");
+	//			console.log(productY);
+	//			console.log("productFnum");
+	//			console.log(productFnum);
+	//			console.log("productName");
+	//			console.log(productName);
+			}else{
+				console.log("productInfo is null...");
+			}
+		}, { passive: false });
 });
 </script>
 

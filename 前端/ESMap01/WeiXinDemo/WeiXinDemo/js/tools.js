@@ -205,7 +205,7 @@ function drawPoint(x, y, fnum) {
     var im = new esmap.ESImageMarker({
         x: Number(x),
         y: Number(y),
-        height: markheight,
+        height: markheight+1,
         url: url,
         size: 64
     });

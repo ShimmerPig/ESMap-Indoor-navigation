@@ -64,18 +64,18 @@
 					console.log("content[1]:");
 					console.log(content[1]);
 					//content[1]为该二维吗对应的房间在数据库中的id
-					//由此id向后端发送查询数据库的请求，返回查询得到的room对象
+					//由此id向后端发送查询数据库的请求，返回查询得到的product对象
 					if (content.length != 2) {
 						mui.alert(result)
 					} else {
 						//跳转页面，并且定位
-						var roomId = content[1];
+						var productId = content[1];
 //						
 //						var user = app.getUserGlobalInfo();
 //						
 						plus.nativeUI.showWaiting("请稍后...");
-						//传入对应的roomId到后端进行查询
-						mui.ajax(app.serverUrl + "/u/searchRoom?roomId=" + roomId, {
+						//传入对应的productId到后端进行查询
+						mui.ajax(app.serverUrl + "/u/searchProduct?productId=" + productId, {
 							data:{},
 							dataType:'json',//服务器返回json格式数据
 							type:'post',//HTTP请求类型
@@ -90,11 +90,11 @@
 									//请求成功后页面跳转
 									mui.openWindow({
 										url: "index.html",
-										id: "index.html",
+										id: "index2"+productId,
 										styles: {},
 										//带给下个页面的数据
 										extras: {
-											searchRoom: data.data
+											searchProduct: data.data
 										}
 									});
 									

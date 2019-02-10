@@ -150,7 +150,8 @@
 			"WeiXinDemo/WeiXinDemo/scan.html": {
 				"resources": [],
 				"refer": [
-					"WeiXinDemo/WeiXinDemo/index.html"
+					"WeiXinDemo/WeiXinDemo/index.html",
+					"WeiXinDemo/WeiXinDemo/index2.html"
 				],
 				"priority": 0
 			},

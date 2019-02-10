@@ -48,6 +48,17 @@ window.app = {
 		plus.storage.setItem("userInfo", userInfoStr);
 	},
 	
+	//保存商品的位置信息的
+	//向后端查询商品后，保存商品信息，方便index页面获取
+	setProductInfo: function(pi){
+		var piStr=JSON.stringify(pi);
+		plus.storage.setItem("productInfo", piStr);
+	},
+	//获取商品信息
+	getProductInfo: function() {
+		var piStr = plus.storage.getItem("productInfo");
+		return JSON.parse(piStr);
+	},
 	/**
 	 * 获取用户的全局对象
 	 */

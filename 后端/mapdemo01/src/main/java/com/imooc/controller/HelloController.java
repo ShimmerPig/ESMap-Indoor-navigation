@@ -6,11 +6,13 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.PlaceholderConfigurerSupport;
+import org.springframework.http.codec.multipart.SynchronossPartHttpMessageReader;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import com.imooc.mapper.ProductCategoryMapper;
 import com.imooc.pojo.ProductCategory;
 import com.imooc.pojo.Room;
@@ -69,8 +71,19 @@ public class HelloController {
 		Room room=roomService.QueryRoomById(roomId);
 		RoomVO roomVO=new RoomVO();
 		BeanUtils.copyProperties(room, roomVO);
+		System.out.println("店铺扫描结果："+roomVO.getName());
 		//将查询到的roomVO对象返回给前端
 		return IMoocJSONResult.ok(roomVO);
+	}
+	
+	@PostMapping("/searchProduct")
+	public IMoocJSONResult searchProduct(String productId) {
+		if(StringUtils.isBlank(productId)) {
+			return IMoocJSONResult.errorMsg("");
+		}
+		ProductInfoVO pVO=pService.queryProductInfoById(productId);
+		System.out.println("商品扫描结果:"+pVO.getProductName());
+		return IMoocJSONResult.ok(pVO);
 	}
 	
 	//获取商品列表
@@ -92,4 +105,16 @@ public class HelloController {
 		}
 		return IMoocJSONResult.ok(pVOList);
 	}
+	
+	//通过商品的name查询商品的接口
+	@PostMapping("/productInfo")
+	public IMoocJSONResult productInfo(String productName) {
+		if(StringUtils.isBlank(productName)) {
+			return IMoocJSONResult.errorMsg("");
+		}
+		ProductInfoVO pVO=pService.queryProductInfoByName(productName);
+		System.out.println("查询的商品name："+pVO.getProductName());
+		return IMoocJSONResult.ok(pVO);
+	}
+	
 }

@@ -38,7 +38,7 @@ function mapDowork() {
         focusAlpha: 0.3, //对不聚焦图层启用透明设置，当focusAlphaMode = true时有效
         viewModeAnimateMode: true, //开启2维，3维切换的动画显示
 //    token: 'escopedunhangguoji',
-		token:"zhuzhu199822",
+		token:"pigpig2",
 //		token: 'test666',
         compassOffset: [20, 100], //指南针 位置
         focusFloor:1,

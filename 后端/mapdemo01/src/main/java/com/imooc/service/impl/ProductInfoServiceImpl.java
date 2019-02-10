@@ -25,6 +25,7 @@ import com.imooc.pojo.vo.ProductInfoVO;
 import com.imooc.service.ProductInfoService;
 import com.imooc.utils.FastDFSClient;
 import com.imooc.utils.FileUtils;
+import com.imooc.utils.QRCodeUtils;
 
 import tk.mybatis.mapper.entity.Example;
 import tk.mybatis.mapper.entity.Example.Criteria;
@@ -33,6 +34,8 @@ import tk.mybatis.mapper.entity.Example.Criteria;
 public class ProductInfoServiceImpl implements ProductInfoService{
 	//在本地保存product图片的地址
 	private String myPath="D:\\Users\\lenovo\\eclipse-workspace\\mapdemo01\\images\\product\\";
+	//在本地保存product二维码图片的地址
+	private String myQrcodePath="D:\\Users\\lenovo\\eclipse-workspace\\mapdemo01\\images\\product\\qrcode\\";
 	
 	@Autowired
 	private ProductInfoMapper pMapper;
@@ -40,6 +43,10 @@ public class ProductInfoServiceImpl implements ProductInfoService{
 	//用于生成唯一的id
 	@Autowired
 	private Sid sid;
+	
+	//生成二维码的工具类
+	@Autowired
+	private QRCodeUtils qrCodeUtils;
 	
 	@Autowired
 	private FastDFSClient fastDFSClient;
@@ -55,6 +62,7 @@ public class ProductInfoServiceImpl implements ProductInfoService{
 		for(int i=0;i<pList.size();i++) {
 			ProductInfoVO pVO=new ProductInfoVO();
 			BeanUtils.copyProperties(pList.get(i), pVO);
+			pVO.setFloorName("F1");
 			pVOList.add(pVO);
 		}
 		return pVOList;
@@ -75,6 +83,20 @@ public class ProductInfoServiceImpl implements ProductInfoService{
 		pi.setProductName(arr[3]);
 		BigDecimal bd=new BigDecimal(arr[4]);
 		pi.setProductPrice(bd);
+		
+		//生成的product的二维码的图片的路径名称
+		String qrCodePath=myQrcodePath+pi.getProductName()+"qrcode.png";
+		//扫码后得到的内容
+		qrCodeUtils.createQRCode(qrCodePath, "zhuzhu_qrcode:"+pi.getProductId());
+		//转成可以上传的文件形式
+		MultipartFile qrCodeFile = FileUtils.fileToMultipart(qrCodePath);
+		String qrCodeUrl = "";
+		try {
+			qrCodeUrl = fastDFSClient.uploadQRCode(qrCodeFile);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		pi.setProductQrcode(qrCodeUrl);
 		//product的icon的名字,这里按照商品的name对图片进行命名
 		String iconPath=myPath+pi.getProductName()+".png";
 		//对文件进行转换
@@ -128,6 +150,32 @@ public class ProductInfoServiceImpl implements ProductInfoService{
 	@Override
 	public void ReadAndInsert(String filePath) {
 		ReadTxtFile(filePath);
+	}
+
+	@Transactional(propagation = Propagation.SUPPORTS)
+	@Override
+	public ProductInfoVO queryProductInfoByName(String productName) {
+		Example pe=new Example(ProductInfo.class);
+		Criteria pc=pe.createCriteria();
+		pc.andEqualTo("productName",productName);
+		ProductInfo productInfo=pMapper.selectOneByExample(pe);
+		ProductInfoVO pVO=new ProductInfoVO();
+		BeanUtils.copyProperties(productInfo, pVO);
+		pVO.setFloorName("F1");
+		return pVO;
+	}
+	
+	@Transactional(propagation = Propagation.SUPPORTS)
+	@Override
+	public ProductInfoVO queryProductInfoById(String productId) {
+		Example pe=new Example(ProductInfo.class);
+		Criteria pc=pe.createCriteria();
+		pc.andEqualTo("productId",productId);
+		ProductInfo p=pMapper.selectOneByExample(pe);
+		ProductInfoVO pVO=new ProductInfoVO();
+		BeanUtils.copyProperties(p, pVO);
+		pVO.setFloorName("F1");
+		return pVO;
 	}
 	
 }

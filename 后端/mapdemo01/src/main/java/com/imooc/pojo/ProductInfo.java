@@ -42,6 +42,9 @@ public class ProductInfo {
     @Column(name = "product_icon_big")
     private String productIconBig;
 
+    @Column(name = "product_qrcode")
+    private String productQrcode;
+
     /**
      * ÀàÄ¿±àºÅ
      */
@@ -174,6 +177,20 @@ public class ProductInfo {
      */
     public void setProductIconBig(String productIconBig) {
         this.productIconBig = productIconBig;
+    }
+
+    /**
+     * @return product_qrcode
+     */
+    public String getProductQrcode() {
+        return productQrcode;
+    }
+
+    /**
+     * @param productQrcode
+     */
+    public void setProductQrcode(String productQrcode) {
+        this.productQrcode = productQrcode;
     }
 
     /**

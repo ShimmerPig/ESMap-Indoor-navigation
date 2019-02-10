@@ -250,28 +250,6 @@ function _init_search_container() {
 		});
 		
 	
-//	//二维码测试
-//	$("#mytest").click(function(){
-//		var poiInfo={};
-//		poiInfo.x=12636763.9341173;
-//      poiInfo.y=2539335.3432394;
-//      poiInfo.fnum=1;
-//      poiInfo.FloorName="F1";
-//      poiInfo.name="F1-房间2";
-//
-//		drawPoint(poiInfo.x, poiInfo.y, poiInfo.fnum);
-//		map.changeFocusFloor(poiInfo.fnum);
-//		map.moveTo({
-//			x: Number(poiInfo.x),
-//			y: Number(poiInfo.y),
-//			FloorNum: poiInfo.fnum,
-//			time: 0.5
-//		});
-//		//显示下面的设置起点与终点
-//		showNavDiv(poiInfo);
-//	});
-	
-	
 	//公共设施
 	$search.$facility
 		.on('click', '.moveBtn', function () {
@@ -283,6 +261,8 @@ function _init_search_container() {
 		})
 		.on('click', '.itemBtn', function () {
 			var title = $(this).find('span').text();
+			console.log("title:");
+			console.log(title);
 			$search.$head.find('.input-box').find('input').val(title);
 			$extend.fn_keyQueryParser(title);
 		});

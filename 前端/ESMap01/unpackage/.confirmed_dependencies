@@ -18,7 +18,8 @@
 	},
 	"WeiXinDemo/WeiXinDemo/scan.html": {
 		"refer": [
-			"WeiXinDemo/WeiXinDemo/index.html"
+			"WeiXinDemo/WeiXinDemo/index.html",
+			"WeiXinDemo/WeiXinDemo/index2.html"
 		]
 	},
 	"ShoppingDemo/WeiXinDemo/index.html": {

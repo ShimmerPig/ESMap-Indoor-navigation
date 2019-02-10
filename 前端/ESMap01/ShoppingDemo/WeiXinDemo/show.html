@@ -193,20 +193,40 @@
 				
 				// 为pcList批量绑定点击事件
 				mui("#pcList").on("tap", ".show-product", function(e){
-					var productFnum = this.getAttribute("productFnum");
-					var productX = this.getAttribute("productX");
-					var productY = this.getAttribute("productY");	
+//					var productFnum = this.getAttribute("productFnum");
+//					var productX = this.getAttribute("productX");
+//					var productY = this.getAttribute("productY");	
 					var productName=this.getAttribute("productName");
-					console.log("show:productName");
-					console.log(productName);
+//					console.log("show:productName");
+//					console.log(productName);
 					// 打开显示商品的子页面
+					//点击商品后将商品信息保存，并且跳转到index页面
+					//通过商品的name向后端查询
+					mui.ajax(app.serverUrl + "/u/productInfo?productName="+productName,{
+						data:{},
+						dataType:'json',//服务器返回json格式数据
+						type:'post',//HTTP请求类型
+						timeout:10000,//超时时间设置为10秒；
+						headers:{'Content-Type':'application/json'},	              
+						success:function(data){
+							if (data.status == 200) {
+								//得到后端返回的商品类目list后，将其保存到手机的缓存中
+								console.log("data:");
+								console.log(data.data);
+								var pi = data.data;
+								//保存后端返回的商品信息，并且跳转页面
+								app.setProductInfo(pi);
+							}
+						}
+					});
+					
 					mui.openWindow({
-						url: "index2.html",
+						url: "index.html",
 						id: "index2-"+productName,	// 每个类目的商品页面都是唯一对应的
 						extras: {
-							productFnum: productFnum,
-							productX: productX,
-							productY: productY,
+//							productFnum: productFnum,
+//							productX: productX,
+//							productY: productY,
 							productName:productName
 						}
 					});

@@ -13,6 +13,7 @@
     <result column="product_price" property="productPrice" jdbcType="DECIMAL" />
     <result column="product_icon" property="productIcon" jdbcType="VARCHAR" />
     <result column="product_icon_big" property="productIconBig" jdbcType="VARCHAR" />
+    <result column="product_qrcode" property="productQrcode" jdbcType="VARCHAR" />
     <result column="category_type" property="categoryType" jdbcType="INTEGER" />
   </resultMap>
 </mapper>
